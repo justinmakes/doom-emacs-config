@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-gruvbox)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/org-roam/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -75,15 +75,19 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; REQUIRE PACKAGES HERE:
+(require 'mu4e)
+;; (require 'smtpmail)
+
 (setq
  projectile-project-search-path '("~/projects/" "~/projects/rust/"))
+
+;; set default printer
+(setq printer-name "HP_Color_LaserJet_Pro_m453-4")
 
 ;; Org Config
 (setq org-roam-directory "~/org-roam")
 ;; TODO: Figure out how to bind org roam sync to a keybinding!
-
-;; Default Mode Settings:
-;; (global-page-break-lines-mode -1) ;; disable to fix issue with node backlinks buffer. Can also org-roam-buffer-refresh
 
 ;; dailies capture will record time of capture
 ;; check format-time-string docs for more info
@@ -93,12 +97,35 @@
 
 (setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/"))
 
-     ;; set default printer
-(setq printer-name "HP_Color_LaserJet_Pro_m453-4")
+;; org-mode mail capture templates
+(setq org-capture-templates
+      '(("m" "Email Workflow")
+        ("mf" "Follow up" entry (file+olp "~/org-roam/mail/mail.org" "Follow Up")
+         "* TODO Follow up with %:fromname: %a\nSCHEDULED:%t\nDEADLINE:%(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n%i" :immediate-finish t)
+        ("mr" "Read Later" entry (file+olp "~/org-roam/mail/mail.org" "Read Later")
+         "* TODO Read later: %a\nSCHEDULED:%t\n%i" :immediate-finish t)))
 
+;; add custom mu4e actions for our capture templates
+(defun efs/capture-mail-follow-up (msg)
+  (interactive)
+  (call-interactively 'org-store-link)
+  (org-capture nil "mf"))
+
+(defun efs/capture-mail-read-later (msg)
+  (interactive)
+  (call-interactively 'org-store-link)
+  (org-capture nil "mr"))
+
+;; Add custom actions for our capture templates
+(add-to-list 'mu4e-headers-actions
+             '("follow up" . efs/capture-mail-follow-up) t)
+(add-to-list 'mu4e-view-actions
+             '("follow up" . efs/capture-mail-follow-up) t)
+(add-to-list 'mu4e-headers-actions
+             '("read later" . efs/capture-mail-read-later) t)
+(add-to-list 'mu4e-view-actions
+             '("read later" . efs/capture-mail-read-later) t)
 ;; mu4e-settings
-(require 'mu4e)
-;; (require 'smtpmail)
 (setq mu4e-root-maildir "~/.mail"
       mu4e-get-mail-command "mbsync --config /home/justinr/.config/mbsync/config -a"
       mu4e-attachment-dir "~/attachments"
@@ -178,36 +205,3 @@
                   (mu4e-refile-folder . "/remoterealty/Repo")
                   (mu4e-sent-folder . "/remoterealty/Sent")
                   (mu4e-trash-folder . "/remoterealty/Trash")))))
-
-;; org-mode mail capture templates
-(setq org-capture-templates
-      '(("m" "Email Workflow")
-        ("mf" "Follow up" entry (file+olp "~/org-roam/mail/mail.org" "Follow Up")
-         "* TODO Follow up with %:fromname: %a\nSCHEDULED:%t\nDEADLINE:%(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n%i" :immediate-finish t)
-        ("mr" "Read Later" entry (file+olp "~/org-roam/mail/mail.org" "Read Later")
-         "* TODO Read later: %a\nSCHEDULED:%t\n%i" :immediate-finish t)))
-
-;; add custom mu4e actions for our capture templates
-(defun efs/capture-mail-follow-up (msg)
-  (interactive)
-  (call-interactively 'org-store-link)
-  (org-capture nil "mf"))
-
-(defun efs/capture-mail-read-later (msg)
-  (interactive)
-  (call-interactively 'org-store-link)
-  (org-capture nil "mr"))
-
-;; Add custom actions for our capture templates
-(add-to-list 'mu4e-headers-actions
-             '("follow up" . efs/capture-mail-follow-up) t)
-(add-to-list 'mu4e-view-actions
-             '("follow up" . efs/capture-mail-follow-up) t)
-(add-to-list 'mu4e-headers-actions
-             '("read later" . efs/capture-mail-read-later) t)
-(add-to-list 'mu4e-view-actions
-             '("read later" . efs/capture-mail-read-later) t)
-
-;; pinentry setup
-;; (require 'epg)
-;; (setq epg-pinentry-mode 'loopback)
