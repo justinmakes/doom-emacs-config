@@ -76,11 +76,11 @@
 ;; they are implemented.
 
 ;;; BEGIN USER CONFIG:
-
 ;;; REQUIRE PACKAGES HERE:
 (require 'mu4e)
 ;; (require 'smtpmail)
 
+;;; PROJECTILE
 (setq
  projectile-project-search-path '("~/projects/" "~/projects/rust/"))
 
@@ -88,7 +88,7 @@
 (setq printer-name "HP_Color_LaserJet_Pro_m453-4") ; set default printer
 
 ;;; ORG CONFIG
-(setq org-roam-directory "~/org-roam")
+(setq org-roam-directory "~/org-roam/")
 ;; TODO: Figure out how to bind org roam sync to a keybinding!
 
 ;; dailies capture will record time of capture
