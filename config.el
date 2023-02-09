@@ -75,17 +75,19 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; REQUIRE PACKAGES HERE:
+;;; BEGIN USER CONFIG:
+
+;;; REQUIRE PACKAGES HERE:
 (require 'mu4e)
 ;; (require 'smtpmail)
 
 (setq
  projectile-project-search-path '("~/projects/" "~/projects/rust/"))
 
-;; set default printer
-(setq printer-name "HP_Color_LaserJet_Pro_m453-4")
+;;; PRINTING
+(setq printer-name "HP_Color_LaserJet_Pro_m453-4") ; set default printer
 
-;; Org Config
+;;; ORG CONFIG
 (setq org-roam-directory "~/org-roam")
 ;; TODO: Figure out how to bind org roam sync to a keybinding!
 
@@ -125,7 +127,8 @@
              '("read later" . efs/capture-mail-read-later) t)
 (add-to-list 'mu4e-view-actions
              '("read later" . efs/capture-mail-read-later) t)
-;; mu4e-settings
+
+;;; MU4E-SETTINGS
 (setq mu4e-root-maildir "~/.mail"
       mu4e-get-mail-command "mbsync --config /home/justinr/.config/mbsync/config -a"
       mu4e-attachment-dir "~/attachments"
