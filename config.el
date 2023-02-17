@@ -102,7 +102,8 @@
 ;; org todo keywords
 (after! org
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "PROJ(p)" "LOOP(l)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "|" "DONE(d)" "KILL(k)" "READ(r)")
+        ;; NOTE: Keywords after "|" will have a "done" state
+        '((sequence "TODO(t)" "PROJ(p)" "LOOP(l)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "SCAN(b)" "|" "DONE(d)" "KILL(k)" "READ(r)")
           (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
           (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
   (setq org-todo-keyword-faces
@@ -114,7 +115,7 @@
           ("PROJ" . +org-todo-project)
           ("NO" . +org-todo-cancel)
           ("KILL" . +org-todo-cancel)
-          ("READ" . (:foreground "cyan" :weight bold)))))
+          ("SCAN" . (:foreground "cyan" :weight bold)))))
 
 ;; org-mode mail capture templates
 (setq org-capture-templates
