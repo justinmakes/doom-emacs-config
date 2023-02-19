@@ -97,7 +97,7 @@
       '(("d" "default" entry "* TRAY %?"
          :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
 
-(setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/" "~/org-roam/tray/"))
+(setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/"))
 
 ;; org todo keywords
 (after! org
