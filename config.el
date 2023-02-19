@@ -123,10 +123,10 @@
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
 (setq org-capture-templates
-      '(("t" "Tray Capture Buffer" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
-         "* TRAY %?\n %U")
-        ("e" "Email To Tray" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
-         "* TRAY %:fromname: %a\n %U\n%i" :immediate-finish t)))
+      '(("e" "Email To Tray" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
+         "* TRAY %:fromname: %a\nCREATED: %U\n%i" :immediate-finish t)
+        ("t" "Tray Capture Buffer" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
+         "* TRAY %?\nCREATED: %U")))
         ;; ("e" "Email Tray" entry (file+olp "~/org-roam/mail/mail.org" "InTray")
         ;;  "* TRAY %:fromname: %a\n%i" :immediate-finish t)))
 
