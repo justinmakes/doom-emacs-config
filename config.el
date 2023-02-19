@@ -97,7 +97,7 @@
       '(("d" "default" entry "* TRAY %?"
          :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
 
-(setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/"))
+(setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/" "~/org-roam/tray/"))
 
 ;; org todo keywords
 (after! org
@@ -121,9 +121,14 @@
           ;; ("[?]" . +org-todo-onhold))))
 
 ;; org-mode mail capture templates
+ ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
 (setq org-capture-templates
-      '(("t" "In-Tray" entry (file+olp "~/org-roam/mail/mail.org" "In-Tray")
-         "* TRAY %:fromname: %a\n%i" :immediate-finish t)))
+      '(("t" "Tray Capture Buffer" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
+         "* TRAY %?\n %U")
+        ("e" "Email To Tray" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
+         "* TRAY %:fromname: %a\n %U\n%i" :immediate-finish t)))
+        ;; ("e" "Email Tray" entry (file+olp "~/org-roam/mail/mail.org" "InTray")
+        ;;  "* TRAY %:fromname: %a\n%i" :immediate-finish t)))
 
 ;; add custom mu4e actions for our capture templates
 (defun efs/capture-mail-follow-up (msg)
