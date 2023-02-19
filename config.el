@@ -123,12 +123,14 @@
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
 (setq org-capture-templates
-      '(("e" "Email To Tray" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
-         "* TRAY %:fromname: %a\nCREATED: %U\n%i" :immediate-finish t)
-        ("t" "Tray Capture Buffer" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
-         "* TRAY %?\nCREATED: %U")))
-        ;; ("e" "Email Tray" entry (file+olp "~/org-roam/mail/mail.org" "InTray")
+      '(("e" "Mail Tray" entry (file+olp "~/org-roam/mail/mail.org" "MailTray")
+         "* TRAY %:fromname: %a\nCREATED: %U\n%i" :immediate-finish t)))
+        ;; ("e" "Mail to Today" entry (file "~/org-roam/daily/%Y-%m-%d.org")
         ;;  "* TRAY %:fromname: %a\n%i" :immediate-finish t)))
+        ;; ("e" "Email To Tray" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
+        ;;  "* TRAY %:fromname: %a\nCREATED: %U\n%i" :immediate-finish t)
+        ;; ("t" "Tray Capture Buffer" entry (file+headline "~/org-roam/tray/tray.org" "InTray")
+        ;;  "* TRAY %?\nCREATED: %U")))
 
 ;; add custom mu4e actions for our capture templates
 (defun efs/capture-mail-follow-up (msg)
