@@ -94,7 +94,7 @@
 ;; dailies capture will record time of capture
 ;; check format-time-string docs for more info
 (setq org-roam-dailies-capture-templates
-      '(("d" "default" entry "* %<%H:%M>: %?"
+      '(("d" "default" entry "* TRAY %?"
          :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
 
 (setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/"))
@@ -103,27 +103,26 @@
 (after! org
   (setq org-todo-keywords
         ;; NOTE: Keywords after "|" will have a "done" state
-        '((sequence "TODO(t)" "PROJ(p)" "LOOP(l)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "SCAN(b)" "|" "DONE(d)" "KILL(k)" "READ(r)")
-          (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
-          (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
+        '((sequence "TRAY(t)" "WAIT(w)" "NACT(a)" "MAYB(m)" "PROJ(p)" "|" "DONE(d)" "CANC(c)" "NO(n)")))
+          ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
   (setq org-todo-keyword-faces
-        '(("[-]" . +org-todo-active)
-          ("STRT" . +org-todo-active)
-          ("[?]" . +org-todo-onhold)
+        ;; NOTE: Use 'list-colors-display' to see available colors
+        '(("TRAY" . (:foreground "red" :weight bold))
           ("WAIT" . +org-todo-onhold)
-          ("HOLD" . +org-todo-onhold)
+          ("NACT" . +org-todo-active)
+          ("MAYB" . +org-todo-onhold)
           ("PROJ" . +org-todo-project)
-          ("NO" . +org-todo-cancel)
-          ("KILL" . +org-todo-cancel)
-          ("SCAN" . (:foreground "cyan" :weight bold)))))
+          ("CANC" . +org-todo-cancel)
+          ("NO" . +org-todo-cancel))))
+          ;; ("NACT" . (:foreground "yellow green" :weight bold))
+          ;; ("SCAN" . (:foreground "medium aquamarine" :weight bold))
+          ;; ("[-]" . +org-todo-active)
+          ;; ("[?]" . +org-todo-onhold))))
 
 ;; org-mode mail capture templates
 (setq org-capture-templates
-      '(("m" "Email Workflow")
-        ("mf" "Follow up" entry (file+olp "~/org-roam/mail/mail.org" "Follow Up")
-         "* TODO Follow up with %:fromname: %a\nSCHEDULED:%t\nDEADLINE:%(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n%i" :immediate-finish t)
-        ("mr" "Read Later" entry (file+olp "~/org-roam/mail/mail.org" "Read Later")
-         "* TODO Read later: %a\nSCHEDULED:%t\n%i" :immediate-finish t)))
+      '(("t" "In-Tray" entry (file+olp "~/org-roam/mail/mail.org" "In-Tray")
+         "* TRAY %:fromname: %a\n%i" :immediate-finish t)))
 
 ;; add custom mu4e actions for our capture templates
 (defun efs/capture-mail-follow-up (msg)
