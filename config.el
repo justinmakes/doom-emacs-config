@@ -132,7 +132,7 @@
         (agenda .  " • ")))
         ;; (agenda . " %i %-12:c")))
 (setq org-agenda-custom-commands
-      '(("n" "GTD View"
+      '(("d" "GTD Daily Review"
          ((agenda "")
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions(n):")))
           ;; (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
