@@ -128,9 +128,12 @@
                                     (search category-keep)))
 (setq org-agenda-block-separator 9472) ;use (describe-char) on a character to find numerical code
 (setq org-agenda-prefix-format ; NOTE: The 4 prefix variables are %i %c %t and %s (see doc-string)
-      '((todo . " • ")
-        (agenda .  " • ")))
-        ;; (agenda . " %i %-12:c")))
+      '((agenda . " %i %?-12t% s")
+        (todo . " %i")
+        (tags . " %i %-12:c")
+        (search . " %i %-12:c")))
+        ;; (agenda . " %i %-12:c%?-12t% s")
+        ;; (todo . " %i %-12:c")
 (setq org-agenda-custom-commands
       '(("d" "GTD Daily Review"
          ((agenda "")
