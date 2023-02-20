@@ -127,10 +127,13 @@
          ((agenda "")
           (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions(n):")))
-          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
-          (todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
+          ;; (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
+          ;; (todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))
+          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))))
         ("i" "In Tray"
           ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
+        ("w" "Waiting for"
+          ((todo "WAIT" ((org-agenda-overriding-header  "Waiting for(w):")))))
         ("p" "Projects"
           ((todo "PROJ" ((org-agenda-overriding-header "Projects(p):")))))
         ("f" "Maybe"
