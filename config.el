@@ -120,6 +120,20 @@
         ;; ("[-]" . +org-todo-active)
         ;; ("[?]" . +org-todo-onhold))))
 
+;; org custom agenda view
+(setq org-agenda-custom-commands
+      '(("v" "GTD View"
+         ((agenda "")
+          (todo "TRAY" ((org-agenda-overriding-header "In Tray:")))
+          (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions:")))
+          (todo "PROJ" ((org-agenda-overriding-header "Projects:")))
+          (todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))
+        ("r" "Reference"
+          ((todo "REFR" ((org-agenda-overriding-header "Reference:")))))
+        ("p" "Maybe"
+          ((todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))))
+
+
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
 (setq org-capture-templates
