@@ -121,12 +121,12 @@
         ;; ("[?]" . +org-todo-onhold))))
 
 ;; org custom agenda view
+(setq org-agenda-sticky t) ; Allows multiple agenda buffers to be open at once NOTE: Must manually refresh with 'r'
 (setq org-agenda-block-separator 9472) ;use (describe-char) on a character to find numerical code
-(setq org-agenda-prefix-format
+(setq org-agenda-prefix-format ; NOTE: The 4 prefix variables are %i %c %t and %s (see doc-string)
       '((todo . " • ")
         (agenda .  " • ")))
         ;; (agenda . " %i %-12:c")))
-
 (setq org-agenda-custom-commands
       '(("n" "GTD View"
          ((agenda "")
