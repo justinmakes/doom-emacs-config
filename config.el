@@ -129,13 +129,16 @@
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions:")))
           (todo "PROJ" ((org-agenda-overriding-header "Projects:")))
           (todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))
+        ("i" "In Tray"
+          ((todo "TRAY" ((org-agenda-overriding-header "In Tray:")))))
+        ("p" "Projects"
+          ((todo "PROJ" ((org-agenda-overriding-header "Projects:")))))
+        ("f" "Maybe"
+          ((todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))
         ("r" "Reference"
           ((todo "REFR" ((org-agenda-overriding-header "Reference:")))))
-        ("p" "Maybe"
-          ((todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))
         ("c" "Canceled"
           ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled:")))))))
-
 
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
