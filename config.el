@@ -100,25 +100,25 @@
 (setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/"))
 
 ;; org todo keywords
-(after! org
-  (setq org-todo-keywords
-        ;; NOTE: Keywords after "|" will have a "done" state
-        '((sequence "TRAY(t)" "WAIT(w@/!)" "NACT(a)" "PROJ(p@/!)" "|" "MAYB(m)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
-          ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
-  (setq org-todo-keyword-faces
-        ;; NOTE: Use 'list-colors-display' to see available colors
-        '(("TRAY" . (:foreground "red" :weight bold))
-          ("WAIT" . +org-todo-onhold)
-          ;; ("NACT" . +org-todo-active)
-          ("NACT" . (:foreground "yellow green" :weight bold))
-          ("PROJ" . +org-todo-project)
-          ("MAYB" . +org-todo-onhold)
-          ("REFR" . +org-todo-onhold)
-          ("CANC" . +org-todo-cancel)
-          ("NO" . +org-todo-cancel))))
-          ;; ("SCAN" . (:foreground "medium aquamarine" :weight bold))
-          ;; ("[-]" . +org-todo-active)
-          ;; ("[?]" . +org-todo-onhold))))
+;; (after! org)
+(setq org-todo-keywords
+      ;; NOTE: Keywords after "|" will have a "done" state
+      '((sequence "TRAY(t)" "WAIT(w@/!)" "NACT(a)" "PROJ(p@/!)" "|" "MAYB(m)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
+        ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
+(setq org-todo-keyword-faces
+      ;; NOTE: Use 'list-colors-display' to see available colors
+      '(("TRAY" . (:foreground "red" :weight bold))
+        ("WAIT" . +org-todo-onhold)
+        ;; ("NACT" . +org-todo-active)
+        ("NACT" . (:foreground "yellow green" :weight bold))
+        ("PROJ" . +org-todo-project)
+        ("MAYB" . +org-todo-onhold)
+        ("REFR" . +org-todo-onhold)
+        ("CANC" . +org-todo-cancel)
+        ("NO" . +org-todo-cancel)))
+        ;; ("SCAN" . (:foreground "medium aquamarine" :weight bold))
+        ;; ("[-]" . +org-todo-active)
+        ;; ("[?]" . +org-todo-onhold))))
 
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
