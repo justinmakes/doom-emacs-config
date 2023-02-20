@@ -121,6 +121,7 @@
         ;; ("[?]" . +org-todo-onhold))))
 
 ;; org custom agenda view
+(setq org-agenda-block-separator 9472) ;use (describe-char) on a character to find numerical code
 (setq org-agenda-custom-commands
       '(("v" "GTD View"
          ((agenda "")
