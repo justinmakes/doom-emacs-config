@@ -112,7 +112,7 @@
         ;; ("NACT" . +org-todo-active)
         ("NACT" . (:foreground "yellow green" :weight bold))
         ("PROJ" . +org-todo-project)
-        ("MAYB" . +org-todo-onhold)
+        ("MAYB" . (:foreground "salmon" :weight bold))
         ("REFR" . +org-todo-onhold)
         ("CANC" . +org-todo-cancel)
         ("NO" . +org-todo-cancel)))
