@@ -103,7 +103,7 @@
 ;; (after! org)
 (setq org-todo-keywords
       ;; NOTE: Keywords after "|" will have a "done" state
-      '((sequence "TRAY(t)" "WAIT(w@/!)" "NACT(a)" "PROJ(p@/!)" "|" "MAYB(m)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
+      '((sequence "TRAY(t)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "|" "MAYB(f)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
         ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
 (setq org-todo-keyword-faces
       ;; NOTE: Use 'list-colors-display' to see available colors
@@ -123,7 +123,7 @@
 ;; org custom agenda view
 (setq org-agenda-block-separator 9472) ;use (describe-char) on a character to find numerical code
 (setq org-agenda-custom-commands
-      '(("v" "GTD View"
+      '(("n" "GTD View"
          ((agenda "")
           (todo "TRAY" ((org-agenda-overriding-header "In Tray:")))
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions:")))
