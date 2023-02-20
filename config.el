@@ -125,20 +125,20 @@
 (setq org-agenda-custom-commands
       '(("n" "GTD View"
          ((agenda "")
-          (todo "TRAY" ((org-agenda-overriding-header "In Tray:")))
-          (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions:")))
-          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems:")))
-          (todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))
+          (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))
+          (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions(n):")))
+          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
+          (todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
         ("i" "In Tray"
-          ((todo "TRAY" ((org-agenda-overriding-header "In Tray:")))))
+          ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("p" "Projects"
-          ((todo "PROJ" ((org-agenda-overriding-header "Projects:")))))
+          ((todo "PROJ" ((org-agenda-overriding-header "Projects(p):")))))
         ("f" "Maybe"
-          ((todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))
+          ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
         ("r" "Reference"
-          ((todo "REFR" ((org-agenda-overriding-header "Reference:")))))
+          ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
         ("c" "Canceled"
-          ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled:")))))))
+          ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled(c):")))))))
 
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
