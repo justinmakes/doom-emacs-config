@@ -141,6 +141,8 @@
           (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("i" "In Tray"
          ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
+        ("n" "Next Actions"
+         ((todo "NACT" ((org-agenda-overriding-header  "Next Actions(n):")))))
         ("w" "Waiting for"
          ((todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))))
         ("p" "Projects"
