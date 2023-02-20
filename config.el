@@ -122,6 +122,10 @@
 
 ;; org custom agenda view
 (setq org-agenda-sticky nil) ; When set to t, allows multiple agenda buffers to be open at once NOTE: Must manually refresh with 'r'
+(setq org-agenda-sorting-strategy '((agenda habit-down time-up priority-down category-keep)
+                                    (todo todo-state-down priority-down category-keep)
+                                    (tags priority-down category-keep)
+                                    (search category-keep)))
 (setq org-agenda-block-separator 9472) ;use (describe-char) on a character to find numerical code
 (setq org-agenda-prefix-format ; NOTE: The 4 prefix variables are %i %c %t and %s (see doc-string)
       '((todo . " • ")
@@ -136,21 +140,27 @@
           (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
           (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("i" "In Tray"
-          ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
+         ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("w" "Waiting for"
-          ((todo "WAIT" ((org-agenda-overriding-header  "Waiting for(w):")))))
+         ((todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))))
         ("p" "Projects"
-          ((todo "PROJ" ((org-agenda-overriding-header "Projects(p):")))))
+         ((todo "PROJ" ((org-agenda-overriding-header "Projects(p):")))))
         ("f" "Maybe"
-          ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
+         ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
         ("l" "Reading List"
-          ((todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))
+         ((todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))
         ("r" "Reference"
-          ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
+         ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
         ("c" "Canceled"
-          ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled(c):")))))
-        ("z" "Weekly Review"
-          ((todo "TRAY|NACT|WAIT|PROJ|MAYB|SCAN" ((org-agenda-overriding-header "Weekly Review(z):")))))))
+         ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled(c):")))))
+        ("z" "GTD Weekly Review"
+         ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))
+          (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
+          (agenda "")
+          (todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))
+          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
+          (todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))
+          (todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))))
 
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
