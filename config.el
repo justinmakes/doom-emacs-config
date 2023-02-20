@@ -131,7 +131,9 @@
         ("r" "Reference"
           ((todo "REFR" ((org-agenda-overriding-header "Reference:")))))
         ("p" "Maybe"
-          ((todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))))
+          ((todo "MAYB" ((org-agenda-overriding-header "Maybe:")))))
+        ("c" "Canceled"
+          ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled:")))))))
 
 
 ;; org-mode mail capture templates
