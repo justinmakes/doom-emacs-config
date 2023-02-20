@@ -103,7 +103,7 @@
 ;; (after! org)
 (setq org-todo-keywords
       ;; NOTE: Keywords after "|" will have a "done" state
-      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "|" "MAYB(f)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
+      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SCAN(l!)" "|" "MAYB(f)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
         ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
 (setq org-todo-keyword-faces
       ;; NOTE: Use 'list-colors-display' to see available colors
@@ -112,11 +112,11 @@
         ;; ("NACT" . +org-todo-active)
         ("NACT" . (:foreground "yellow green" :weight bold))
         ("PROJ" . +org-todo-project)
+        ("SCAN" . (:foreground "medium aquamarine" :weight bold))
         ("MAYB" . (:foreground "salmon" :weight bold))
         ("REFR" . +org-todo-onhold)
         ("CANC" . +org-todo-cancel)
         ("NO" . +org-todo-cancel)))
-        ;; ("SCAN" . (:foreground "medium aquamarine" :weight bold))
         ;; ("[-]" . +org-todo-active)
         ;; ("[?]" . +org-todo-onhold))))
 
@@ -143,6 +143,8 @@
           ((todo "PROJ" ((org-agenda-overriding-header "Projects(p):")))))
         ("f" "Maybe"
           ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
+        ("l" "Reading List"
+          ((todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))
         ("r" "Reference"
           ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
         ("c" "Canceled"
