@@ -122,6 +122,11 @@
 
 ;; org custom agenda view
 (setq org-agenda-block-separator 9472) ;use (describe-char) on a character to find numerical code
+(setq org-agenda-prefix-format
+      '((todo . " • ")
+        (agenda .  " • ")))
+        ;; (agenda . " %i %-12:c")))
+
 (setq org-agenda-custom-commands
       '(("n" "GTD View"
          ((agenda "")
