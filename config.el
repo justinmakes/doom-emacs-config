@@ -130,11 +130,11 @@
 (setq org-agenda-custom-commands
       '(("n" "GTD View"
          ((agenda "")
-          (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions(n):")))
           ;; (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
           ;; (todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))
-          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))))
+          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
+          (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("i" "In Tray"
           ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("w" "Waiting for"
@@ -148,7 +148,9 @@
         ("r" "Reference"
           ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
         ("c" "Canceled"
-          ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled(c):")))))))
+          ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled(c):")))))
+        ("z" "Weekly Review"
+          ((todo "TRAY|NACT|WAIT|PROJ|MAYB|SCAN" ((org-agenda-overriding-header "Weekly Review(z):")))))))
 
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
