@@ -103,7 +103,7 @@
 ;; (after! org)
 (setq org-todo-keywords
       ;; NOTE: Keywords after "|" will have a "done" state
-      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SCAN(l!)" "|" "MAYB(f)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
+      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "|" "MAYB(f)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
         ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
 (setq org-todo-keyword-faces
       ;; NOTE: Use 'list-colors-display' to see available colors
@@ -112,6 +112,8 @@
         ;; ("NACT" . +org-todo-active)
         ("NACT" . (:foreground "yellow green" :weight bold))
         ("PROJ" . +org-todo-project)
+        ("SPRJ" . +org-todo-project)
+        ;; ("SPRJ" . (:foreground "MediumPurple3" :weight bold))
         ("SCAN" . (:foreground "medium aquamarine" :weight bold))
         ("MAYB" . (:foreground "salmon" :weight bold))
         ("REFR" . +org-todo-onhold)
@@ -140,7 +142,7 @@
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions(n):")))
           ;; (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
           ;; (todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))
-          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
+          (todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
           (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("i" "In Tray"
          ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
@@ -149,7 +151,7 @@
         ("w" "Waiting for"
          ((todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))))
         ("p" "Projects"
-         ((todo "PROJ" ((org-agenda-overriding-header "Projects(p):")))))
+         ((todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects(p):")))))
         ("f" "Maybe"
          ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
         ("l" "Reading List"
@@ -163,7 +165,7 @@
           (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
           (agenda "")
           (todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))
-          (todo "PROJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
+          (todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
           (todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))
           (todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))))
 
