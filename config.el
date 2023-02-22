@@ -91,12 +91,6 @@
 (setq org-roam-directory "~/org-roam/")
 ;; TODO: Figure out how to bind org roam sync to a keybinding!
 
-;; dailies capture will record time of capture
-;; check format-time-string docs for more info
-(setq org-roam-dailies-capture-templates
-      '(("d" "default" entry "* TRAY %?"
-         :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
-
 (setq org-agenda-files '("~/org-roam/" "~/org-roam/mail/" "~/org-roam/daily/"))
 
 ;; org todo keywords
@@ -168,6 +162,12 @@
           (todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
           (todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))
           (todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))))
+
+;; dailies capture will record time of capture
+;; check format-time-string docs for more info
+(setq org-roam-dailies-capture-templates
+      '(("d" "default" entry "* TRAY %?"
+         :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
 
 ;; org-mode mail capture templates
  ;; NOTE: 'olp' in place of 'headline' allows you to capture to subheadings in addition to headings!
