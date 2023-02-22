@@ -161,7 +161,8 @@
           (todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))
           (todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
           (todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))
-          (todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))))
+          (todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))
+          (todo "REFR" ((org-agenda-overriding-header  "Reference(r):")))))))
 
 ;; dailies capture will record time of capture
 ;; check format-time-string docs for more info
