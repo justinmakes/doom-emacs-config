@@ -98,7 +98,8 @@
 (setq org-todo-keywords
       ;; NOTE: Keywords after "|" will have a "done" state
       '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "MAYB(f)" "|" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")
-        (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
+        (sequence "[ ](T)" "|" "[X](D)")))
+        ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
 (setq org-todo-keyword-faces
       ;; NOTE: Use 'list-colors-display' to see available colors
       '(("TRAY" . (:foreground "red" :weight bold))
@@ -112,9 +113,9 @@
         ("MAYB" . (:foreground "salmon" :weight bold))
         ("REFR" . +org-todo-onhold)
         ("CANC" . +org-todo-cancel)
-        ("NO" . +org-todo-cancel)
-        ("[-]" . +org-todo-active)
-        ("[?]" . +org-todo-onhold)))
+        ("NO" . +org-todo-cancel)))
+        ;; ("[-]" . +org-todo-active)
+        ;; ("[?]" . +org-todo-onhold)))
 
 ;; org custom agenda view
 (setq org-agenda-sticky nil) ; When set to t, allows multiple agenda buffers to be open at once NOTE: Must manually refresh with 'r'
@@ -134,8 +135,6 @@
       '(("d" "GTD Daily Review"
          ((agenda "")
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions(n):")))
-          ;; (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
-          ;; (todo "WAIT" ((org-agenda-overriding-header "Waiting for(w):")))
           (todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
           (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("i" "In Tray"
@@ -154,6 +153,8 @@
          ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
         ("c" "Canceled"
          ((todo "CANC|NO" ((org-agenda-overriding-header "Canceled(c):")))))
+        ("x" "Calendar Items"
+         ((todo "[ ]" ((org-agenda-overriding-header "Calendar Items(x):")))))
         ("z" "GTD Weekly Review"
          ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))
           (todo "NACT" ((org-agenda-overriding-header "Next Actions(n):")))
