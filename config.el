@@ -149,10 +149,10 @@
          ((todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects(p):")))))
         ("f" "Maybe"
          ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
-        ("l" "Reading List"
-         ((todo "SCHD" ((org-agenda-overriding-header "Scheduled(u):")))))
         ("u" "Scheduled Items"
-         ((todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))
+         ((todo "SCHD" ((org-agenda-overriding-header "Scheduled Items(u):")))))
+        ("l" "Reading List"
+         ((todo "SCAN" ((org-agenda-overriding-header "Reading List(l)")))))
         ("r" "Reference"
          ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
         ("c" "Canceled"
