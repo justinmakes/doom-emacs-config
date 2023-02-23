@@ -97,7 +97,7 @@
 ;; (after! org)
 (setq org-todo-keywords
       ;; NOTE: Keywords after "|" will have a "done" state
-      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "MAYB(f)" "|" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
+      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "MAYB(f)" "SCHD(u)" "|" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
         ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
 (setq org-todo-keyword-faces
       ;; NOTE: Use 'list-colors-display' to see available colors
@@ -110,6 +110,7 @@
         ;; ("SPRJ" . (:foreground "MediumPurple3" :weight bold))
         ("SCAN" . (:foreground "medium aquamarine" :weight bold))
         ("MAYB" . (:foreground "salmon" :weight bold))
+        ("SCHD" . (:foreground "yellow" :weight bold))
         ("REFR" . +org-todo-onhold)
         ("CANC" . +org-todo-cancel)
         ("NO" . +org-todo-cancel)))
@@ -149,6 +150,8 @@
         ("f" "Maybe"
          ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
         ("l" "Reading List"
+         ((todo "SCHD" ((org-agenda-overriding-header "Scheduled(u):")))))
+        ("u" "Scheduled Items"
          ((todo "SCAN" ((org-agenda-overriding-header "Reading list(l)")))))
         ("r" "Reference"
          ((todo "REFR" ((org-agenda-overriding-header "Reference(r):")))))
