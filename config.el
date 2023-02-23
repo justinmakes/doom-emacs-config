@@ -110,7 +110,7 @@
         ;; ("SPRJ" . (:foreground "MediumPurple3" :weight bold))
         ("SCAN" . (:foreground "medium aquamarine" :weight bold))
         ("MAYB" . (:foreground "salmon" :weight bold))
-        ("SCHD" . (:foreground "yellow" :weight bold))
+        ("SCHD" . (:foreground "yellow green" :weight bold))
         ("REFR" . +org-todo-onhold)
         ("CANC" . +org-todo-cancel)
         ("NO" . +org-todo-cancel)))
