@@ -97,8 +97,8 @@
 ;; (after! org)
 (setq org-todo-keywords
       ;; NOTE: Keywords after "|" will have a "done" state
-      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "MAYB(f)" "SCHD(u)" "|" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
-        ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
+      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "MAYB(f)" "|" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")
+        (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
 (setq org-todo-keyword-faces
       ;; NOTE: Use 'list-colors-display' to see available colors
       '(("TRAY" . (:foreground "red" :weight bold))
@@ -110,12 +110,11 @@
         ;; ("SPRJ" . (:foreground "MediumPurple3" :weight bold))
         ("SCAN" . (:foreground "medium aquamarine" :weight bold))
         ("MAYB" . (:foreground "salmon" :weight bold))
-        ("SCHD" . (:foreground "yellow green" :weight bold))
         ("REFR" . +org-todo-onhold)
         ("CANC" . +org-todo-cancel)
-        ("NO" . +org-todo-cancel)))
-        ;; ("[-]" . +org-todo-active)
-        ;; ("[?]" . +org-todo-onhold))))
+        ("NO" . +org-todo-cancel)
+        ("[-]" . +org-todo-active)
+        ("[?]" . +org-todo-onhold)))
 
 ;; org custom agenda view
 (setq org-agenda-sticky nil) ; When set to t, allows multiple agenda buffers to be open at once NOTE: Must manually refresh with 'r'
@@ -149,8 +148,6 @@
          ((todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects(p):")))))
         ("f" "Maybe"
          ((todo "MAYB" ((org-agenda-overriding-header "Maybe(f):")))))
-        ("u" "Scheduled Items"
-         ((todo "SCHD" ((org-agenda-overriding-header "Scheduled Items(u):")))))
         ("l" "Reading List"
          ((todo "SCAN" ((org-agenda-overriding-header "Reading List(l)")))))
         ("r" "Reference"
