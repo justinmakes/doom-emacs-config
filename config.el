@@ -97,7 +97,7 @@
 ;; (after! org)
 (setq org-todo-keywords
       ;; NOTE: Keywords after "|" will have a "done" state
-      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "MAYB(f)" "|" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
+      '((sequence "TRAY(i)" "WAIT(w@/!)" "NACT(n)" "PROJ(p@/!)" "SPRJ(P@/!)" "SCAN(l!)" "|" "MAYB(f)" "REFR(r!)" "DONE(d!)" "CANC(c@)" "NO(n)")))
         ;; (sequence "[ ](T)" "[-](A)" "[?](M)" "|" "[X](D)")))
 (setq org-todo-keyword-faces
       ;; NOTE: Use 'list-colors-display' to see available colors
