@@ -136,7 +136,7 @@
          ((agenda "")
           (todo "NACT|WAIT" ((org-agenda-overriding-header "Next Actions(n):")))
           (todo "PROJ|SPRJ" ((org-agenda-overriding-header "Projects/Problems(p):")))
-          (todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
+          (todo "TRAY" ((org-agenda-overriding-header "In Tray(i) [Emergency scan only!]:")))))
         ("i" "In Tray"
          ((todo "TRAY" ((org-agenda-overriding-header "In Tray(i):")))))
         ("n" "Next Actions"
