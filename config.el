@@ -184,25 +184,16 @@
         ;;  "* TRAY %?\nCREATED: %U")))
 
 ;; add custom mu4e actions for our capture templates
-(defun efs/capture-mail-follow-up (msg)
+(defun efs/capture-mail-mailtray (msg)
   (interactive)
   (call-interactively 'org-store-link)
-  (org-capture nil "mf"))
-
-(defun efs/capture-mail-read-later (msg)
-  (interactive)
-  (call-interactively 'org-store-link)
-  (org-capture nil "mr"))
+  (org-capture nil "e"))
 
 ;; Add custom actions for our capture templates
 (add-to-list 'mu4e-headers-actions
-             '("follow up" . efs/capture-mail-follow-up) t)
+             '("to mailtray" . efs/capture-mail-mailtray) t)
 (add-to-list 'mu4e-view-actions
-             '("follow up" . efs/capture-mail-follow-up) t)
-(add-to-list 'mu4e-headers-actions
-             '("read later" . efs/capture-mail-read-later) t)
-(add-to-list 'mu4e-view-actions
-             '("read later" . efs/capture-mail-read-later) t)
+             '("to mailtray" . efs/capture-mail-mailtray) t)
 
 ;;; MU4E-SETTINGS
 (setq mu4e-root-maildir "~/.mail"
