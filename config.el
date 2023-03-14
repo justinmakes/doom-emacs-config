@@ -88,7 +88,7 @@
 (setq printer-name "HP_Color_LaserJet_Pro_m453-4") ; set default printer
 
 ;;; PDF TOOLS
-(setq pdf-info-epdfinfo-program "/nix/store/bvq8qhwp611p2dhyfbs1i6vab5ygzajs-emacs-pdf-tools-20221007.1404/share/emacs/site-lisp/elpa/pdf-tools-20221007.1404/epdfinfo")
+;; (setq pdf-info-epdfinfo-program "/nix/store/bvq8qhwp611p2dhyfbs1i6vab5ygzajs-emacs-pdf-tools-20221007.1404/share/emacs/site-lisp/elpa/pdf-tools-20221007.1404/epdfinfo")
 
 ;;; ORG CONFIG
 (setq org-roam-directory "~/org-roam/")
